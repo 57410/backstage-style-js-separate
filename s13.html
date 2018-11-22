@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="test">ererer</div>
+    <script>
+        var mydiv = document.getElementById('test');
+//        mydiv.onclick = function () {
+//            console.log(123);
+//        }
+        mydiv.addEventListener('click',function () {
+            console.log(11);
+        },false);
+        mydiv.addEventListener('click',function () {
+            console.log(22);
+        },false);
+
+    </script>
+</body>
+</html>
