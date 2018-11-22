@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 300px;height: 200px;
+            border:1px;
+        }
+    </style>
+</head>
+<body>
+<table  style="">
+    <!--onmouseover="t1();" onmouseout="t2();"-->
+    <tr>
+        <td>1</td><td>2</td><td>3</td>
+    </tr>
+    <tr>
+        <td>1</td><td>2</td><td>3</td>
+    </tr>
+    <tr>
+        <td>1</td><td>2</td><td>3</td>
+    </tr>
+</table>
+    <script>
+//        绑定方式两种方式  a直接标签绑定 onclick='xxx()' onfocus
+//        b 先获取Dom对象  然后进行绑定
+//        document.getElementById('xx').onclick
+//        document.getElementById('xx').onfocus
+//        this,当前触发事件的标签
+//            a第一种绑定方式：
+//        <input id="i1" type='button' onclick='ClickOn(this)'>
+//                function ClickOn(ths) {
+//                //ths 当前点击的标签
+//                }
+//                b:第二中绑定方式:
+//         <input id="i1" type='button' >
+//                document.getElementById().onclick = function () {
+//            //this 代指当前点击的标签
+//        }
+//        document.getElementsByTagName('tr').onmouseover = function () {
+//
+//        }
+        var myTrs=document.getElementsByTagName('tr');
+//        var len = myTrs.length;
+//        for(var i=0;i<len;i++){
+        for (var i=0;i<myTrs.length;i++){
+//            作用域常考的题型  this myTrs[i]
+            myTrs[i].onmouseover = function () {
+//                myTrs[i].style.background='red';  不能这样绑定
+            this.style.background='red';
+            };
+            myTrs[i].onmouseout = function () {
+                this.style.background='';
+            };
+        }
+    </script>
+</body>
+</html>
