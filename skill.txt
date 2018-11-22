@@ -1,0 +1,40 @@
+生成新的密钥
+$ ssh-keygen -t rsa -C “您的邮箱地址”
+
+在生成新的密钥过程中，有时会报错：  bash:ssh-key command not found
+解决办法很简单，输入 $export PATH=/usr/bin:$PATH ，设置path变量。
+现在你就需要登录到你的GitHub上边添加这个密匙，
+之后你就可以回到你的Git bash来检查是否绑定成功
+$ ssh -T git@github.com
+在输入yes后如果出现了：You've successfully authenticated, but GitHub does not provide shell access 。那就说明，已经成功连上了GitHub。接下来还需要简单的设置一些东西。
+$ git config --global user.name "your name"
+$ git config --global user.email "your_email@youremail.com"
+输入上边的代码，name最好和GitHub上边的一样，email是一定要是注册GitHub的那个邮箱地址
+
+这两个的顺序可以颠倒，没有固定的顺序。
+
+ 下面就要将你的库克隆下来到本地电脑中，方便以后进行上传代码。
+
+在库创建完成之后 会有一个网址出现在网页中。
+https://github.com/HungKuei/SmartCampus.git
+
+
+个人习惯将自己的文件储存在d盘之中，所以你先需要将git bash定位在d盘中
+在git bash中输入 cd /D 注意盘名字一定要是大写。如不输入这个语句 不给git bash定位的话，默认的本地文件位置是在c盘中
+输入之后会出现/D说明定位成功。
+之后输入git clone后边的网址就是你创建库成功之后的网址
+之后输入ls语句 ls的作用是查看你目前所定位的文件夹中的文件，现在可以看出来，我刚刚所创建的test文件已经出现了。
+
+然后输入 git add test.txt
+
+之后输入然后git commit -m "cc"  引号内的内容可以随意改动，这个语句的意思是 给你刚刚上传的文件一个备注，方便查找记忆而已
+输入之后出现以上情况，然后在输入git push origin master 之后会出现一个
+
+如果之后出现这种情况的话，就是登陆失败了，这时候你就需要输入你GitHub的账号名称
+
+0 在服务端创建初始库 复制http地址
+1 git init表示创建本地的库
+
+将状态改变的代码提交至缓存：git add + 文件git add -u + 路径：将修改过的被跟踪代码提交缓存git add -A + 路径: 将修改过的未被跟踪的代码提交至缓存
+将代码提交到本地仓库中：git commit -m “注释部分 ref T3070”
+将代码推送到服务器：git push
